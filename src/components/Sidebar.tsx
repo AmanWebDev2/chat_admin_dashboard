@@ -8,6 +8,15 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
 import Link from "next/link";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { AiOutlineMessage } from "react-icons/ai";
@@ -32,7 +41,7 @@ export const sideBarLinks = [
         label: "Sent",
         route: "/dashboard/message/sent",
       },
-    ]
+    ],
   },
   {
     label: "Settings",
@@ -47,7 +56,7 @@ export const sideBarLinks = [
         label: "Account",
         route: "/dashboard/setting/account",
       },
-    ]
+    ],
   },
 ];
 
@@ -69,13 +78,26 @@ const Sidebar = () => {
           })}
           {/* profile section */}
           <div className="mt-auto">
-          <li className="p-3 flex flex-1 items-center gap-x-2 hover:bg-gray-100 rounded-lg transition-all cursor-pointer">
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-            Aman
-          </li>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="w-full outline-none border rounded-xl shadow">
+                <li className="p-3 flex flex-1 items-center gap-x-2 hover:bg-gray-100 rounded-lg transition-all cursor-pointer">
+                  <Avatar>
+                    <AvatarImage src="https://github.com/shadcn.png" />
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+                  Aman Rawat
+                </li>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-40">
+                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>Profile</DropdownMenuItem>
+                <DropdownMenuItem>Billing</DropdownMenuItem>
+                <DropdownMenuItem>Team</DropdownMenuItem>
+                <DropdownMenuItem>Subscription</DropdownMenuItem>
+                <DropdownMenuItem>Logout</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </ul>
       </aside>
