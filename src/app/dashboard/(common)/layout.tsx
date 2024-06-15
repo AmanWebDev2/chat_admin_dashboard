@@ -11,11 +11,11 @@ const SubLayout = ({children}:{children:React.ReactNode}) => {
     <aside className='w-80 flex flex-col'>
     <h4 className="text-lg border py-4 px-7">
       { 
-      pathName === '/dashboard/conversation' ? 'Conversations' : 
+      pathName.includes('/dashboard/conversation') ? 'Conversations' : 
       pathName === '/dashboard/settings' ? 'Settings' : 'Chat App'
       }
     </h4>
-      {pathName === '/dashboard/conversation' && <ConversationSidebar/>}
+      {pathName.includes('/dashboard/conversation') && <ConversationSidebar/>}
       {pathName === '/dashboard/settings' && <SettingsSidebar/>}
     </aside>
     <section className='flex-1'>
